@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AICOS_HomePage</title>
+    <link th:href="@{/index.css}" rel="styleSheet">
+    <style>
+    	tr{margin:5px; }
+		td{padding-right:10px; color:black; background:#f0f0f0;}
+    </style>
+</head>
+<header>
+    <h1>AICOS</h1>
+    <nav class="gnav">
+        <ul class="menu">
+            <li><a href="">機能A</a></li>
+            <li><a href="">機能B</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+<div id="write">
+	<table>
+		<form action="/" method="post" th:object="${formModel}">
+		<tr><td><label for="name">名前</label></td>
+			<td><input type="text" name="name" th:value="*{name}" /></td></tr><div></div>
+		<tr><td><label for="password">パスワード</label></td>
+			<td><input type="text" name="password" th:value="*{password}"/></td></tr><div></div>
+		<tr><td><label for="affiliation">所属</label></td>
+			<td><input type="text" name="affiliation" th:value="*{affiliation}"/></td></tr><div></div>
+		<tr><td><label for="position">役職</label></td>
+			<td><input type="text" name="position" th:value="*{position}"/></td></tr><div></div>
+		<tr><td><label for="role">権限</label></td>
+			<td><input type="text" name="role" th:value="*{role}"/></td></tr><div></div>
+		<tr><td></td><td><input type="submit"/></td></tr>
+		</form>
+	</table>
+</div>
+
+<div id=table>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>password</th>
+            <th>affiliation</th>
+            <th>position</th>
+            <th>role</th>
+        </tr>
+        <tr th:each="obj:${testlist}">
+            <td class="id"  th:text="${obj.id}">あ</td>
+            <td class="name" th:text="${obj.name}">あ</td>
+            <td class="elsecolum" th:text="${obj.password}">あ</td>
+            <td class="elsecolum" th:text="${obj.affiliation}">あ</td>
+            <td class="elsecolum" th:text="${obj.position}">あ</td>
+            <td class="elsecolum" th:text="${obj.role}">あ</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
